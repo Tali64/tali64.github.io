@@ -1,7 +1,9 @@
 <script>
-  var searchterm = document.getElementById("SearchInput").value
-  var url = "site:" + "https://*.miraheze.org/ " + searchterm
-  var window = window.open(url)
+  function search() {
+    var searchterm = document.getElementById("SearchInput").value
+    var url = "site:" + "https://*.miraheze.org/ " + searchterm
+    var window = window.open(url)
+  }
 </script>
 <p>This is a tool to search for a term in wikis. Currently a work in progress.</p>
 <p><input type="text" id="SearchInput"/>
