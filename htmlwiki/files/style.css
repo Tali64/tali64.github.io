@@ -1,0 +1,50 @@
+#content, header, nav {
+	position: absolute;
+}
+#editor {
+    position: relative
+}
+h1 {
+    margin: 0;
+}
+#logo, nav {
+    width: 175px
+}
+#menu, #editbox {
+    background-color: white;
+}
+#menu, #textbar, textarea {
+    border-style: solid;
+    border-width: 1px;
+}
+#menu {
+    border-radius: 5px;
+}
+#content, #menu {
+    top: 5px;
+}
+#content, #editor, header {
+    left: 200px;
+}
+#logo {
+    height: 175px;
+}
+#content {
+    width: 1000px;
+	top: 100px;
+}
+#textbar {
+	background-color: lightgray;
+    width: 694px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+body {
+	background-color: gray;
+}
+textarea {
+	height: 450px;
+	width: 700px;
+    resize: none;
+}
