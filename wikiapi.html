@@ -10,8 +10,8 @@
             */
             function createWikiAccount() {
                 const request = new XMLHttpRequest();
-                wikiUrl = "http://w3.org/wiki",
-                endPoint = wikiUrl + "/api.php";
+                wikiUrl = "http://test.wikipedia.org",
+                endPoint = wikiUrl + "/w/api.php";
                 // Step 1: GET request to fetch createaccount token
                 function getCreateAccountToken() {
                     var params_0 = {
@@ -54,7 +54,7 @@
         </script>
     </head>
     <body>
-        <p>This website is for testing the MediaWiki account creation API. So far, it can only create accounts on the <a href="https://www.w3.org/wiki/">W3C Wiki.</a></p>
+        <p>This website is for testing the MediaWiki account creation API. So far, it can only create accounts on the <a href="https://test.wikipedia.org">Test Wikipedia.</a></p>
         <button onclick="createWikiAccount()">Create Account</button>
     </body>
 </html>
