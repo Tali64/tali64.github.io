@@ -10,46 +10,14 @@
             */
             function createWikiAccount() {
                 const request = new XMLHttpRequest();
-                wikiUrl = "http://test.wikipedia.org",
-                endPoint = wikiUrl + "/w/api.php";
+                var wikiUrl = "http://test.wikipedia.org",
+                var endPoint = wikiUrl + "/w/api.php";
                 // Step 1: GET request to fetch createaccount token
-                function getCreateAccountToken() {
-                    var params_0 = {
-                        action: "query",
-                        meta: "tokens",
-                        type: "createaccount",
-                        format: "json"
-                    };
-                    request.get({ url: endPoint, qs: params_0 }, function (error, res, body) {
-                        if (error) {
-                            return;
-                        }
-                        var data = JSON.parse(body);
-                        createaccount(data.query.tokens.createaccounttoken);
-                    });
-                }
+                var authManager = request.open("GET", "https://test.wikipedia.org/w/api.php?action=query&meta=authmanagerinfo")
+                var createToken = request.open("GET", "https://test.wikipedia.org/w/api.php?action=query&meta=tokens")
                 // Step 2: POST request with the fetched token and other data (user information, return URL, etc.)  to the API to create an account
-                function createaccount(createaccount_token) {
-                    var params_1 = {
-                        action: "createaccount",
-                        username: "MediaWikiAPITest",
-                        password: "password",
-                        retype: "password",
-                        createreturnurl: wikiUrl,
-                        createtoken: createaccount_token,
-                        format: "json"
-                    };
-
-                    request.post({ url: endPoint, form: params_1 }, function (error, res, body) {
-                        if (error) {
-                            return;
-                        }
-                        console.log(body);
-                    });
-                }
-
-                // Start From Step 1
-                getCreateAccountToken();
+                var accountCreate = "https://test.wikipedia.org/w/api.php?action=createaccount&createreturnurl=http://test.wikipedia.org/&createtoken=" + createToken + "&username=MediaWikiAPITest&password=password&retype=password&captchaId=70020580&captchaWord=winedtyping"
+                request.open("POST", )
             }
         </script>
     </head>
