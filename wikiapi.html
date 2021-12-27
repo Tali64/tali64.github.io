@@ -10,13 +10,12 @@
             */
             function createWikiAccount() {
                 const request = new XMLHttpRequest();
-                var wikiUrl = "http://test.wikipedia.org",
-                var endPoint = wikiUrl + "/w/api.php";
+                var wikiUrl = "http://test.wikipedia.org/w/api.php";
                 // Step 1: GET request to fetch createaccount token
                 var authManager = request.open("GET", "https://test.wikipedia.org/w/api.php?action=query&meta=authmanagerinfo")
                 var createToken = request.open("GET", "https://test.wikipedia.org/w/api.php?action=query&meta=tokens")
                 // Step 2: POST request with the fetched token and other data (user information, return URL, etc.)  to the API to create an account
-                var accountCreate = "https://test.wikipedia.org/w/api.php?action=createaccount&createreturnurl=http://test.wikipedia.org/&createtoken=" + createToken + "&username=MediaWikiAPITest&password=password&retype=password&captchaId=70020580&captchaWord=winedtyping"
+                var accountCreate = wikiUrl + "?action=createaccount&createreturnurl=http://test.wikipedia.org/&createtoken=" + createToken + "&username=MediaWikiAPITest&password=password&retype=password&captchaId=70020580&captchaWord=winedtyping"
                 request.open("POST", )
             }
         </script>
