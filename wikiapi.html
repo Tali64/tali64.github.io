@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript>
+            /*  
+                MediaWiki Account Creation Script
+                Demo of `createaccount` module: Create an account on a wiki without the special authentication extensions
+                Original code for MediaWiki API Demos
+                MIT license
+            */
+            function createWikiAccount() {
+                const request = new XMLHttpRequest();
+                wikiUrl = "http://w3.org/wiki",
+                endPoint = wikiUrl + "/api.php";
+                // Step 1: GET request to fetch createaccount token
+                function getCreateAccountToken() {
+                    var params_0 = {
+                        action: "query",
+                        meta: "tokens",
+                        type: "createaccount",
+                        format: "json"
+                    };
+                    request.get({ url: endPoint, qs: params_0 }, function (error, res, body) {
+                        if (error) {
+                            return;
+                        }
+                        var data = JSON.parse(body);
+                        createaccount(data.query.tokens.createaccounttoken);
+                    });
+                }
+                // Step 2: POST request with the fetched token and other data (user information, return URL, etc.)  to the API to create an account
+                function createaccount(createaccount_token) {
+                    var params_1 = {
+                        action: "createaccount",
+                        username: "MediaWikiAPITest",
+                        password: "password",
+                        retype: "password",
+                        createreturnurl: wikiUrl,
+                        createtoken: createaccount_token,
+                        format: "json"
+                    };
+
+                    request.post({ url: endPoint, form: params_1 }, function (error, res, body) {
+                        if (error) {
+                            return;
+                        }
+                        console.log(body);
+                    });
+                }
+
+                // Start From Step 1
+                getCreateAccountToken();
+            }
+        </script>
+    </head>
+    <body>
+        <p>This website is for testing the MediaWiki account creation API. So far, it can only create accounts on the <a href="https://www.w3.org/wiki/">W3C Wiki.</a></p>
+        <button onclick="">Create Account</button>
+    </body>
+</html>
