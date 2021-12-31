@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript">
+            function parse(code) {
+                var parse = ""
+                var as = code
+                var js = ""
+                for (i = 0; i < as.length; i++) {
+                    parse += as.charAt(i);
+                    if (parse == "stop()") {
+                        js += "this.stop()"
+                        parse = ""
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>This is an online tool to convert ActionScript to JavaScript.</p>
+        <textarea id="code"></textarea>
+        <button onclick="parse(document.getElementById(code).value)">Convert</button>
+    </body>
+</html>
