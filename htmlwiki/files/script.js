@@ -17,6 +17,22 @@ function addSpecialText() {
         document.getElementById("editbox").value = txt + "<u>" + addtxt + "</u>";
     }
 }
+function readJSON() {
+    const fileSystem = require("browserify-fs")
+    fileSystem.readFile("https://tali64.github.io/htmlwiki/files/data.json", (err, data) => {
+     if(err) {
+       console.log("File can't be read", err)
+       return
+     }
+     try{
+       const client = JSON.parse(data)
+       console.log("client data is:", client)
+     }
+     catch(err) {
+       console.log("Error parsing JSON string:", err)
+     }
+    })
+}
 var support = (function() {
     if (!window.DOMParser) return false;
     var parser = new DOMParser();
