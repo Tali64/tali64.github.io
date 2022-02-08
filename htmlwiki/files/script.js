@@ -67,7 +67,6 @@ function hideEditArea() {
     var y = document.getElementById("content");
     x.style.display = "none";
     y.style.display = "block";
-    }
 }
 function showEditArea() {
     var x = document.getElementById("editor");
