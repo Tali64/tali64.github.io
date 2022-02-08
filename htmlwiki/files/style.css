@@ -1,12 +1,15 @@
-#content, header, nav {
-	position: absolute;
+#content, #editor, header, nav {
+    position: absolute;
 }
-#editor {
-    position: relative
-    right: 10px;
+#content, #editor, header {
+    left: 200px;
 }
-h1 {
-    margin: 0;
+#menu, #textbar, textarea {
+    border-style: solid;
+    border-width: 1px;
+}
+#content, #menu {
+    top: 5px;
 }
 #logo, nav {
     width: 175px
@@ -14,25 +17,15 @@ h1 {
 #menu, #editbox {
     background-color: white;
 }
-#menu, #textbar, textarea {
-    border-style: solid;
-    border-width: 1px;
-}
-#menu {
-    border-radius: 5px;
-}
-#content, #menu {
-    top: 5px;
-}
-#content, #editor, header {
-    left: 200px;
+#content {
+    width: 1000px;
+    top: 100px;
 }
 #logo {
     height: 175px;
 }
-#content {
-    width: 1000px;
-    top: 100px;
+#menu {
+    border-radius: 5px;
 }
 #textbar {
     background-color: lightgray;
@@ -43,6 +36,9 @@ h1 {
 }
 body {
     background-color: gray;
+}
+h1 {
+    margin: 0;
 }
 textarea {
     height: 450px;
