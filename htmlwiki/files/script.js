@@ -50,12 +50,10 @@ var textToHTML= function(str) {
         var doc = parser.parseFromString(str, 'text/html');
         return doc.body.innerHTML;
     }
-
     // Otherwise, create div and append HTML
     var dom = document.createElement('div');
     dom.innerHTML = str;
     return dom;
-
 };
 function submit() {
     var txt = document.getElementById("editbox").value;
@@ -71,7 +69,6 @@ function hideEditArea() {
 function showEditArea() {
     var x = document.getElementById("editor");
     var y = document.getElementById("content");
-        x.style.display = "block";
-        y.style.display = "none";
-    }
+    x.style.display = "block";
+    y.style.display = "none";
 }
