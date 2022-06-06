@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<style>
+			button {
+				position: absolute;
+				left: 600px;
+				top: 300px;
+				font-size: 60px;
+			}
+			#score {
+				position: absolute;
+				left: 270px;
+				font-size: 60px;
+				font-family: sans-serif;
+			}
+		</style>
 		<script>
-			var i = 0
+			var i = 0;
 			function increment() {
 				i++;
-				document.getElementById("score").innerHTML = "You have clicked the button " + i + " times."
+				if(i == 1) {
+					document.getElementById("score").innerHTML = "You have clicked the button " + i + " time.";
+				} else {
+					document.getElementById("score").innerHTML = "You have clicked the button " + i + " times.";
+				}
 			}
 		</script>
 	</head>
 	<body>
 		<button onclick="increment()">Click me!</button>
-		<p id="score"></p>
+		<p id="score">You have not clicked the button yet.</p>
 	</body>
 </html>
